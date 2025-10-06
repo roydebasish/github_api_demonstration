@@ -45,18 +45,18 @@ AppConfig.initialize("dev"); // or "staging" / "prod"
 | **equatable**                     | Simplified equality for states/entities |
 
 ## 💡 Features
-✅ Fetch top 50 Flutter repositories from GitHub
-✅ Cache data locally for offline use
-✅ Sort repositories by stars or last updated
-✅ Light/Dark theme toggle with persistence
-✅ Clean layered architecture for scalability
-✅ Responsive, theme-aware UI
+- ✅ Fetch top 50 Flutter repositories from GitHub
+- ✅ Cache data locally for offline use
+- ✅ Sort repositories by stars or last updated
+- ✅ Light/Dark theme toggle with persistence
+- ✅ Clean layered architecture for scalability
+- ✅ Responsive, theme-aware UI
 
 ## 🧠 Architecture Overview
 Clean Architecture Layers:
-  Domain Layer → Entities, UseCases, Abstract Repositories
-  Data Layer → Models, Local/Remote DataSources, Repository Implementation
-  Presentation Layer → BLoC + UI
+  - Domain Layer → Entities, UseCases, Abstract Repositories
+  - Data Layer → Models, Local/Remote DataSources, Repository Implementation
+  - Presentation Layer → BLoC + UI
 
 
 
