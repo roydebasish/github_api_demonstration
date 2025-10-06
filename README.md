@@ -20,20 +20,20 @@ This app demonstrates a scalable and testable Flutter architecture:
 
 ## ⚙️ How to Run the App
 
-1️⃣ Clone the Repository
+## 1️⃣ Clone the Repository
 git clone https://github.com/roydebasish/github_api_demonstration
 cd github_api_demonstration
 
-2️⃣ Install Dependencies
+## 2️⃣ Install Dependencies
 flutter pub get
 
-3️⃣ Run the App
+## 3️⃣ Run the App
 flutter run
 
 You can specify the environment from main.dart:
 AppConfig.initialize("dev"); // or "staging" / "prod"
 
-🧩 Key Dependencies
+## 🧩 Key Dependencies
 | Package                           | Purpose                                 |
 | --------------------------------- | --------------------------------------- |
 | **flutter_bloc**                  | State management using BLoC pattern     |
@@ -44,7 +44,7 @@ AppConfig.initialize("dev"); // or "staging" / "prod"
 | **intl**                          | Date formatting for repository updates  |
 | **equatable**                     | Simplified equality for states/entities |
 
-💡 Features
+## 💡 Features
 ✅ Fetch top 50 Flutter repositories from GitHub
 ✅ Cache data locally for offline use
 ✅ Sort repositories by stars or last updated
@@ -52,7 +52,7 @@ AppConfig.initialize("dev"); // or "staging" / "prod"
 ✅ Clean layered architecture for scalability
 ✅ Responsive, theme-aware UI
 
-🧠 Architecture Overview
+## 🧠 Architecture Overview
 Clean Architecture Layers:
   Domain Layer → Entities, UseCases, Abstract Repositories
   Data Layer → Models, Local/Remote DataSources, Repository Implementation
