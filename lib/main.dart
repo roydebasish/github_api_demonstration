@@ -1,6 +1,14 @@
 import 'package:flutter/material.dart';
 
+import 'core/config/app_config.dart';
+
 void main() {
+
+  WidgetsFlutterBinding.ensureInitialized();
+
+  // ✅ Choose environment manually
+  AppConfig.initialize(Environment.staging);
+
   runApp(const MyApp());
 }
 
@@ -51,6 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
+
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
