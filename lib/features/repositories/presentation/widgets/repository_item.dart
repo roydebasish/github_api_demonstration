@@ -9,29 +9,42 @@ class RepositoryItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
+
     return GestureDetector(
-      onTap: (){
-        Navigator.push(context, MaterialPageRoute(builder: (_) => RepositoryDetailsScreen(repository: repository)));
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (_) => RepositoryDetailsScreen(repository: repository),
+          ),
+        );
       },
       child: Container(
         margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         padding: const EdgeInsets.all(12),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: theme.cardColor, // ✅ reacts to theme
           borderRadius: BorderRadius.circular(12),
-          border: Border.all(color: Colors.grey.shade300),
+          border: Border.all(
+            color: isDark
+                ? Colors.white10
+                : Colors.grey.shade300, // ✅ theme adaptive border
+          ),
           boxShadow: [
-            BoxShadow(
-              color: Colors.grey.shade200,
-              blurRadius: 4,
-              offset: const Offset(0, 2),
-            ),
+            if (!isDark)
+              BoxShadow(
+                color: Colors.grey.shade200,
+                blurRadius: 4,
+                offset: const Offset(0, 2),
+              ),
           ],
         ),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Owner Avatar
+            // Avatar
             CircleAvatar(
               radius: 24,
               backgroundImage: repository.owner?.avatarUrl != null
@@ -43,17 +56,16 @@ class RepositoryItem extends StatelessWidget {
             ),
             const SizedBox(width: 12),
 
-            // Repository Info
+            // Info
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // Full Name
+                  // Repo name
                   Text(
                     repository.fullName ?? "No name",
-                    style: const TextStyle(
+                    style: theme.textTheme.titleMedium?.copyWith(
                       fontWeight: FontWeight.bold,
-                      fontSize: 16,
                     ),
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
@@ -63,37 +75,32 @@ class RepositoryItem extends StatelessWidget {
                   // Description
                   Text(
                     repository.description ?? "No description available",
-                    style: TextStyle(
-                      color: Colors.grey.shade600,
-                      fontSize: 14,
+                    style: theme.textTheme.bodyMedium?.copyWith(
+                      color: theme.textTheme.bodyMedium?.color?.withOpacity(0.7),
                     ),
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                   ),
                   const SizedBox(height: 8),
 
-                  // Stars & Last Updated
+                  // Stars & Date
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      // Stars
                       Row(
                         children: [
                           const Icon(Icons.star, size: 16, color: Colors.amber),
                           const SizedBox(width: 4),
                           Text(
                             repository.stargazersCount?.toString() ?? '0',
-                            style: const TextStyle(fontSize: 14),
+                            style: theme.textTheme.bodyMedium,
                           ),
                         ],
                       ),
-
-                      // Last Updated
                       Text(
                         repository.updatedAt ?? "No date",
-                        style: TextStyle(
-                          fontSize: 12,
-                          color: Colors.grey.shade500,
+                        style: theme.textTheme.bodySmall?.copyWith(
+                          color: theme.textTheme.bodySmall?.color?.withOpacity(0.6),
                         ),
                       ),
                     ],
@@ -105,10 +112,5 @@ class RepositoryItem extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  // Helper to format DateTime
-  String formatDateTime(DateTime dateTime) {
-    return "${dateTime.month.toString().padLeft(2,'0')}-${dateTime.day.toString().padLeft(2,'0')}-${dateTime.year} ${dateTime.hour.toString().padLeft(2,'0')}:${dateTime.minute.toString().padLeft(2,'0')}";
   }
 }
