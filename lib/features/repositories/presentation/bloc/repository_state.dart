@@ -5,25 +5,29 @@ class RepositoryState extends Equatable {
   final List<RepositoryEntity> repositories;
   final bool isLoading;
   final String? error;
+  final String currentSort;
 
   const RepositoryState({
     this.repositories = const [],
     this.isLoading = false,
     this.error,
+    this.currentSort = "stars",
   });
 
   RepositoryState copyWith({
     List<RepositoryEntity>? repositories,
     bool? isLoading,
     String? error,
+    String? currentSort,
   }) {
     return RepositoryState(
       repositories: repositories ?? this.repositories,
       isLoading: isLoading ?? this.isLoading,
       error: error,
+      currentSort: currentSort ?? this.currentSort,
     );
   }
 
   @override
-  List<Object?> get props => [repositories, isLoading, error];
+  List<Object?> get props => [repositories, isLoading, error,currentSort];
 }

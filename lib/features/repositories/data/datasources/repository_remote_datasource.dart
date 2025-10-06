@@ -8,7 +8,7 @@ class GitHubRemoteDataSource {
   GitHubRemoteDataSource() : _dio = DioClient.createDio();
 
   Future<List<RepositoryModel>> fetchFlutterRepositories({
-    String query = "flutter",
+    String query = "Flutter",
     String sort = "stars",
     String order = "desc",
     int perPage = 50,

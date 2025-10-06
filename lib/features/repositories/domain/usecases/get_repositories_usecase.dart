@@ -6,7 +6,7 @@ class GetRepositoriesUseCase {
 
   GetRepositoriesUseCase(this.repository);
 
-  Future<List<RepositoryEntity>> call({bool forceRefresh = false}) {
-    return repository.getRepositories(forceRefresh: forceRefresh);
+  Future<List<RepositoryEntity>> call({bool forceRefresh = false, String sort = "stars"}) {
+    return repository.getRepositories(forceRefresh: forceRefresh,sort: sort);
   }
 }
