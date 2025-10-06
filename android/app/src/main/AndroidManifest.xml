@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
-        android:label="github_api_demonstration"
+        android:label="GitHub API Demonstration"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

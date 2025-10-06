@@ -16,7 +16,7 @@ class RepositoryListPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Top Flutter Repositories"),
+        title: const Text("GitHub API Demonstration"),
         actions: [
           IconButton(
             icon: const Icon(Icons.refresh),
