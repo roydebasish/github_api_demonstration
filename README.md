@@ -1,6 +1,6 @@
 # 🧩 GitHub API Demonstration (Flutter + Clean Architecture)
 
-A **GitHub API Demonstration** showcasing a production-level clean architecture setup.  
+**GitHub API Demonstration** showcasing a production-level clean architecture setup.  
 It fetches and displays **top starred Flutter repositories** from the **GitHub API**,  
 supports **offline caching (SQLite)**, **theme persistence (light/dark)**, and  
 **sorting/filtering** options for repositories.
